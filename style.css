@@ -1,0 +1,41 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+/*  TODO: Determine Google Fonts Family */
+    font-family: serif; 
+    margin: 0;
+    padding: 0;
+}
+
+
+header {
+    margin: 10px 5px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    text-align: center;
+    justify-content: space-evenly;
+}
+
+
+main * {
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    margin: 20px auto;
+}
+
+main > * {
+    display: flex;
+    flex-direction: column;
+}
+
+fieldset {
+    display: flex;
+    flex-direction: column;
+    border: 0;
+}
+
+

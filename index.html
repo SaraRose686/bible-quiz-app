@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width" />
+        <title>Bible Quest</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css">
+        <link href="style.css" rel="stylesheet" type="text/css" />
+        <script src="script.js" defer></script>
+    </head>
+    <body>
+        <header>
+            <div class="progress">Question 1</div>
+            <h1>BIBLE QUEST</h1>
+            <div class="progress">Score: 0/10</div>
+        </header>
+
+
+        <main>
+            <section class="start" id="start">
+                <h2>How well do you know the Bible?</h2>
+                <button class="startQuiz" >Begin your Quest of Bible Knowledge</button>
+            </section>
+            
+            <hr> <!-- Indicates new screen for wireframe -->
+            
+            <form class="question">
+                <fieldset>
+                <legend>This is where the question will be displayed!</legend>
+                <input type="button" name="answers" id="answer1" value="Answer 1" required>
+                <input type="button" name="answers" id="answer2" value="Answer 2">
+                <input type="button" name="answers" id="answer3" value="Answer 3">
+                <input type="button" name="answers" id="answer4" value="Answer 4">
+                <input type="submit" value="And God said...">
+                </fieldset>
+            </form>
+            
+            <hr> <!-- Indicates new screen for wireframe -->
+            
+            <section class="result correct">
+                <div>Hallelujah!</div>
+                <div class="answerReference">
+                    You can read this story in<br>
+                    <a class="textLink" href="#" target="_blank">Bible Text Link</a>.
+                </div>
+            </section>
+
+            <hr> <!-- Indicates new screen for wireframe -->
+            
+            <section class="result incorrect">
+                <div>
+                    Looks like you need more studying!<br>
+                    The correct answer is: 
+                    <span class="answerText">Correct Answer</span>
+                </div>
+                <div class="answerReference">
+                    You can read this story in<br>
+                    <a class="textLink" href="#" target="_blank">Bible Text Link</a>.
+                </div>
+            </section>
+
+            <hr> <!-- Indicates new screen for wireframe -->
+            
+            <section class="result pass">
+                <div>
+                    The Wisdom of God is in you!
+                </div>
+                <div class="finalScore">
+                    You scored <span class="score">10/10</span>!
+                </div>
+                <div>
+                    Go therefore and make disciples in all the nations...
+                </div>
+                <button class="resetQuiz" >Restart your Quest</button>
+            </section>
+        
+            <hr> <!-- Indicates new screen for wireframe -->
+            
+            <section class="result fail">
+                <div>
+                    Do not be discouraged! God is with you wherever you may go.
+                </div>
+                <div class="finalScore">
+                    You scored <span class="score">6/10</span>!
+                </div>
+                <div>
+                    Let the word of Christ dwell in you richly...
+                </div>
+                <button class="resetQuiz" >Restart your Quest</button>
+            </section>
+
+        </main>
+
+
+
+
+        <footer>
+<!--        Embeded attributes for potential images
+            <a style="background-color:black;color:white;text-decoration:none;padding:4px 6px;font-family:-apple-system, BlinkMacSystemFont, &quot;San Francisco&quot;, &quot;Helvetica Neue&quot;, Helvetica, Ubuntu, Roboto, Noto, &quot;Segoe UI&quot;, Arial, sans-serif;font-size:12px;font-weight:bold;line-height:1.2;display:inline-block;border-radius:3px" href="https://unsplash.com/@aaronburden?utm_medium=referral&amp;utm_campaign=photographer-credit&amp;utm_content=creditBadge" target="_blank" rel="noopener noreferrer" title="Download free do whatever you want high-resolution photos from Aaron Burden"><span style="display:inline-block;padding:2px 3px"><svg xmlns="http://www.w3.org/2000/svg" style="height:12px;width:auto;position:relative;vertical-align:middle;top:-2px;fill:white" viewBox="0 0 32 32"><title>unsplash-logo</title><path d="M10 9V0h12v9H10zm12 5h10v18H0V14h10v9h12v-9z"></path></svg></span><span style="display:inline-block;padding:2px 3px">Aaron Burden</span></a>
+            <a style="background-color:black;color:white;text-decoration:none;padding:4px 6px;font-family:-apple-system, BlinkMacSystemFont, &quot;San Francisco&quot;, &quot;Helvetica Neue&quot;, Helvetica, Ubuntu, Roboto, Noto, &quot;Segoe UI&quot;, Arial, sans-serif;font-size:12px;font-weight:bold;line-height:1.2;display:inline-block;border-radius:3px" href="https://unsplash.com/@benwhitephotography?utm_medium=referral&amp;utm_campaign=photographer-credit&amp;utm_content=creditBadge" target="_blank" rel="noopener noreferrer" title="Download free do whatever you want high-resolution photos from Ben White"><span style="display:inline-block;padding:2px 3px"><svg xmlns="http://www.w3.org/2000/svg" style="height:12px;width:auto;position:relative;vertical-align:middle;top:-2px;fill:white" viewBox="0 0 32 32"><title>unsplash-logo</title><path d="M10 9V0h12v9H10zm12 5h10v18H0V14h10v9h12v-9z"></path></svg></span><span style="display:inline-block;padding:2px 3px">Ben White</span></a>
+-->
+        </footer>
+    </body>
+</html>
