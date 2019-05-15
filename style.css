@@ -3,22 +3,42 @@
 }
 
 body {
-/*  TODO: Determine Google Fonts Family */
-    font-family: serif; 
+    font-family: 'Source Sans Pro', sans-serif;
     margin: 0;
     padding: 0;
+    background: url("images/aaron-burden-759770-unsplash.jpg") no-repeat center center fixed;
+    background-size: cover;
+    height: 100%;
+    overflow: hidden;
 }
 
 
 header {
+    font-family: 'Crimson Text', serif;
     margin: 10px 5px;
     display: flex;
     flex-direction: row;
     align-items: center;
     text-align: center;
     justify-content: space-evenly;
+    font-size: 24px;
 }
 
+header > h1 {
+    color: white;
+    background-color: gray;
+    padding: 5px;
+    width: 50%;
+}
+
+.progress {
+    width: 25%;
+}
+
+footer {
+    position: fixed;
+    bottom: 0px;
+}
 
 main * {
     align-items: center;
@@ -43,4 +63,32 @@ input {
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
+}
+
+
+.picAttribute {
+    background-color:black;
+    color:white;
+    text-decoration:none;
+    padding:4px 6px;
+    font-family:-apple-system, BlinkMacSystemFont, 'San Francisco', 'Helvetica Neue', Helvetica, Ubuntu, Roboto, Noto, 'Segoe UI', Arial, sans-serif;
+    font-size: 12px;
+    font-weight:bold;
+    line-height:1.2;
+    display:inline-block;
+    border-radius:3px;
+}
+
+.picAttributeText {
+    display:inline-block;
+    padding:2px 3px;
+}
+
+.unsplashLogo {
+    height:12px;
+    width:auto;
+    position:relative;
+    vertical-align:middle;
+    top:-2px;
+    fill:white;
 }
