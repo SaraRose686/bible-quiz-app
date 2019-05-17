@@ -6,6 +6,7 @@
         <title>Bible Quest</title>
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Crimson+Text|Source+Sans+Pro">
         <link rel="stylesheet" href="style.css" type="text/css" />
+        <script src="https://www.biblegateway.com/public/link-to-us/tooltips/bglinks.js" defer></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/cuid/1.3.8/browser-cuid.min.js" defer></script>
         <script src="https://code.jquery.com/jquery-3.4.1.min.js"
             integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
@@ -14,28 +15,26 @@
     </head>
     <body>
         <header>
-            <div class="progress" id="progressNum">#1</div>
+            <div class="progress" id="js-progressNum"></div>
             <h1>BIBLE QUEST</h1>
-            <div class="progress" id="progressScore">Score: 0/10</div>
+            <div class="progress" id="js-progressScore"></div>
         </header>
-
         <main>
-            <h2>How well do you know the Bible?</h2>
-            <button class="startQuiz" >Begin your Quest of Bible Knowledge</button>
+            <section id="js-quizInfo"></section>
+            <form id="js-questionForm"></form>
         </main>
-
         <footer>
-<!--        Embedded attributes for background images -->
+<!--        Embedded Attribution for background images -->
             <a href="https://unsplash.com/@aaronburden?utm_medium=referral&amp;utm_campaign=photographer-credit&amp;utm_content=creditBadge" 
-                class="picAttribute" target="_blank" rel="noopener noreferrer" 
+                class="picAttribution" target="_blank" rel="noopener noreferrer" 
                 title="Download free do whatever you want high-resolution photos from Aaron Burden">
-                <span class="picAttributeText">
+                <span class="picAttributionText">
                     <svg xmlns="http://www.w3.org/2000/svg" class="unsplashLogo" viewBox="0 0 32 32">
                         <title>unsplash-logo</title>
                         <path d="M10 9V0h12v9H10zm12 5h10v18H0V14h10v9h12v-9z"></path>
                     </svg>
                 </span>
-                <span class="picAttributeText">Aaron Burden</span>
+                <span class="picAttributionText">Aaron Burden</span>
             </a>
 
         </footer>

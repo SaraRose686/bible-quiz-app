@@ -7,7 +7,7 @@ export const QUESTIONS = [
     },
     {   // Question 2
         question: `Who was NOT one of the three Hebrew boys cast into the fiery furnace?`,
-        answers: [ `Shadrach`, `Meshach`, `Abed-nego`, `Daniel`],
+        answers: [ `Shadrach`, `Meshach`, `Abednego`, `Daniel`],
         correctAnswer: `Daniel`,
         bibleText: `Daniel 3:20`
     },
@@ -18,10 +18,10 @@ export const QUESTIONS = [
         bibleText: `1 Samuel 20:42`
     },
     {   // Question 4
-        question: `Who is NOT currently to heaven with God?`,
+        question: `Who is NOT currently in heaven with God?`,
         answers: [ `Enoch`, `Elijah`, `Moses`, `Solomon`],
         correctAnswer: `Solomon`,
-        bibleText: `Genesis 5:24; 2 Kings 2:11; Matthew 17:3`
+        bibleText: `Genesis 5:23-24; Matthew 17:3`
     },
     {   // Question 5
         question: `Who was cast into a den of lions?`,
@@ -48,15 +48,15 @@ export const QUESTIONS = [
         bibleText: `Matthew 26:74`
     },
     {   // Question 9
-        question: `When Jesus died on the cross, which of the following things did NOT happen?`,
+        question: `At the moment Jesus died on the cross, which of the following things did NOT happen?`,
         answers: [ `There was an earthquake`, `Jesus came back to life`, `The dead came to life`, `The veil of the temple was torn`],
         correctAnswer: `Jesus came back to life`,
         bibleText: `Matthew 27:51-53`
     },
     {   // Question 10
         question: `What animal attacked Paul after being shipwrecked on the island of Malta?`,
-        answers: [ `Viper`, `Bear`, `Mule`, `Scorpion`],
-        correctAnswer: `Viper`,
+        answers: [ `Snake`, `Bear`, `Mule`, `Scorpion`],
+        correctAnswer: `Snake`,
         bibleText: `Acts 28:3`
     }
 ]

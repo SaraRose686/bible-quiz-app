@@ -58,15 +58,16 @@ fieldset {
     border: 0;
 }
 
-
+/*
 input {
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
 }
+*/
 
-
-.picAttribute {
+/* Classes defined for the Background Picture Attribution */
+.picAttribution {
     background-color:black;
     color:white;
     text-decoration:none;
@@ -79,7 +80,7 @@ input {
     border-radius:3px;
 }
 
-.picAttributeText {
+.picAttributionText {
     display:inline-block;
     padding:2px 3px;
 }
