@@ -3,6 +3,8 @@
 
 How well do you know the Bible?  Test your Bible Trivia with this quiz web app.
 
+[Click here to launch the quiz!](https://sararose686.github.io/bible-quiz-app/)
+
 ---
 
 Web app created as part of the Bloc Web Developer Track program.
