@@ -41,8 +41,8 @@ function renderQuizHome() {
 
 // Generate the HTML for a single answer
 function generateAnswerElement(answer, index) {
-    return `<input type="radio" name="answers" id="answer${index}" value="${answer}">
-            <label class="answerLabel" for="answer${index}">${answer}</label>`;
+    return `<input type="radio" tabindex="-1" name="answers" id="answer${index}" value="${answer}">
+            <label class="answerLabel" tabindex="0" onclick="submit()" role="button" for="answer${index}">${answer}</label>`;
 }
   
 // Generate the HTML string for all answers
@@ -92,7 +92,7 @@ function clearProgress() {
 }
 
 // Generate the HTML for result 
-function generateResultString( isCorrect ) {
+function generateQuestionResultString( isCorrect ) {
     return `<div id="result">
                 <h2>${isCorrect ? "Hallelujah!" : "Looks like you need more studying!"}</h2>
                 ${isCorrect ? "" : 
@@ -109,7 +109,7 @@ function renderQuestionResult( isCorrect ) {
     logToggle("renderQuestionResult() ran");
     
     // Add results to information section
-    $("#js-quizInfo").html(generateResultString(isCorrect));
+    $("#js-quizInfo").html(generateQuestionResultString(isCorrect));
 
     // Remove question
     $("#js-questionForm").html("");
@@ -156,7 +156,7 @@ function handleValidateForm() {
         
 
 // Generate the HTML for final quiz results
-function generateFinalResultString(isWinner) {
+function generateQuizResultString(isWinner) {
     return `<div id="result">
                 <h2>${isWinner ? 
                     "The Wisdom of God is in you!" : 
@@ -177,7 +177,7 @@ function renderQuizResult( isWinner ) {
     logToggle("renderQuizResult() ran");
     
     // Add results to information section
-    $("#js-quizInfo").html(generateFinalResultString(isWinner));
+    $("#js-quizInfo").html(generateQuizResultString(isWinner));
 
     // Remove question
     $("#js-questionForm").html("");
