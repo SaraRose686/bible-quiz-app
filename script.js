@@ -33,17 +33,16 @@ function renderProgress() {
 function renderQuizHome() {
     logToggle("renderQuizHome() ran");
     const homeStartUpString = 
-        `<h2>How well do you know the Bible?</h2>
-        <button id="js-startQuiz">Begin your Quest of Bible Knowledge</button>`;
+        `<h2 id="intro">How well do you know the Bible?</h2>
+        <button id="js-startQuiz">Begin your Quest</button>`;
     $("#js-quizInfo").html(homeStartUpString);
     $("#js-questionForm").html("");
 }
 
 // Generate the HTML for a single answer
-// ! Determine why Required is not working !
 function generateAnswerElement(answer, index) {
-    return `<label for="answer${index}">${answer}</label>
-            <input type="radio" name="answers" id="answer${index}" value="${answer}" required>`;
+    return `<input type="radio" name="answers" id="answer${index}" value="${answer}">
+            <label class="answerLabel" for="answer${index}">${answer}</label>`;
 }
   
 // Generate the HTML string for all answers
@@ -61,7 +60,7 @@ function renderQuestion() {
 
     // Create HTML for Question Form
     const questionHTMLString = 
-        `<fieldset>
+        `<fieldset id="questionAnswerSet">
             <legend>${currentQuestion.question}</legend>
             ${generateAnswerString(currentQuestion.answers)}
             <button type="submit" id="js-submitAnswer">And God said...</button>
@@ -80,6 +79,8 @@ function handleStartButton() {
         logToggle("handleStartButton() ran");
         shuffle(QUESTIONS);
         renderQuestion();
+        // Change background for questions
+        $("body").css("background-image", "url(images/aaron-burden-320238-unsplash.jpg)");
     });
 }
 
@@ -92,14 +93,14 @@ function clearProgress() {
 
 // Generate the HTML for result 
 function generateResultString( isCorrect ) {
-    return `<h2>
-                ${isCorrect ? "Hallelujah!" : "Looks like you need more studying!"}
-            </h2>
-            ${isCorrect ? "" : 
-            `<p>The correct answer is: 
-                <span class="answerText">${QUESTIONS[currentQuesNum].correctAnswer}</span>
-            </p>`}
-            <p>You can read this story in ${QUESTIONS[currentQuesNum].bibleText}.</p>
+    return `<div id="result">
+                <h2>${isCorrect ? "Hallelujah!" : "Looks like you need more studying!"}</h2>
+                ${isCorrect ? "" : 
+                `<p>The correct answer is: 
+                    <span id="answerText">${QUESTIONS[currentQuesNum].correctAnswer}.</span>
+                </p>`}
+                <p>You can read this story in ${QUESTIONS[currentQuesNum].bibleText}.</p>
+            </div>
             <button id="js-next">Continue your Quest</button>`;
 }
 
@@ -119,32 +120,55 @@ function renderQuestionResult( isCorrect ) {
     BGLinks.linkVerses();
 }
 
-// Event handler for the Question form Submit Button
-//   Determines whether user answered question correctly
-function handleQuestionSubmit() {
-    $("#js-questionForm").on("click", "#js-submitAnswer", event => {
-        logToggle("handleQuestionSubmit() ran");
-        event.preventDefault();
-        const userAnswer = $("input[type='radio']:checked").val();
-        let userIsCorrect = QUESTIONS[currentQuesNum].correctAnswer === userAnswer;
-        score += userIsCorrect ? 1 : 0;
-        renderQuestionResult(userIsCorrect);
-    });
+// Determines whether user answered question correctly
+function determineQuestionResult() {
+    const userAnswer = $("input[type='radio']:checked").val();
+    let userIsCorrect = QUESTIONS[currentQuesNum].correctAnswer === userAnswer;
+    score += userIsCorrect ? 1 : 0;
+    renderQuestionResult(userIsCorrect);
 }
+
+// Event handler for validating the Question form
+function handleValidateForm() {
+    $("#js-questionForm").validate( {
+        submitHandler: (form,event) => { 
+            event.preventDefault();
+            determineQuestionResult();
+        },
+        rules: {   
+            answers: "required"
+        },
+        messages: {
+            answers: {
+                required:"<i class='fas fa-dove'></i> Please select a response!"
+            }
+        },
+        errorPlacement: (error, element) => {
+            if ( element.is(":radio") ) {
+                error.prependTo( element.parents('#questionAnswerSet') );
+            }
+            else { // This is the default behavior
+                error.insertAfter( element );
+            }
+        }
+    });
+}       
+        
 
 // Generate the HTML for final quiz results
 function generateFinalResultString(isWinner) {
-    return `<h2>
+    return `<div id="result">
+                <h2>${isWinner ? 
+                    "The Wisdom of God is in you!" : 
+                    "Do not be discouraged!<br>God is with you wherever you may go."}
+                </h2>
+                <p id="finalScore">You scored ${score}/10!</p>
                 ${isWinner ? 
-                "The Wisdom of God is in you!" : 
-                "Do not be discouraged!<br>God is with you wherever you may go."}
-            </h2>
-            <p>You scored <span class="score">${score}/10</span>!</p>
-            ${isWinner ? 
-                `<h2>Therefore, go and make disciples of all the nations!</h2>
-                    <p>Matthew 28:19</p>` : 
-                `<h2>Let the message about Christ, in all its richness, fill your life!</h2>
-                    <p>Colossians 3:16</p>`}
+                    `<h3>"Therefore, go and make disciples of all the nations!"</h3>
+                        <p>Matthew 28:19</p>` : 
+                    `<h3>"Let the message about Christ, in all its richness, fill your life!"</h3>
+                        <p>Colossians 3:16</p>`}
+            </div>
             <button id="js-resetQuiz">Restart your Quest</button>`;
 }
 
@@ -185,6 +209,8 @@ function handleResetButton() {
         currentQuesNum = 0;
         score = 0;
         renderQuizHome();
+        // Change Background for Home screen
+        $("body").css("background-image", "url(images/aaron-burden-759770-unsplash.jpg)");
     });
 }
 
@@ -194,10 +220,10 @@ function handleQuiz() {
 
     renderQuizHome();
     handleStartButton();
-    handleQuestionSubmit();
+    handleValidateForm();
     handleNextButton();
     handleResetButton();
 }
 
-// Execute document.ready() to start the quiz app
+// Start the quiz app
 $(handleQuiz);

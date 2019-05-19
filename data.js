@@ -37,7 +37,7 @@ export const QUESTIONS = [
     },
     {   // Question 7
         question: `What was the 12-year-old Jesus doing when His parents found Him?`,
-        answers: [ `Praying to His Father`, `Fishing with nets`, `Teaching in the temple`, `Playing with other children`],
+        answers: [ `Praying to His Father`, `Fishing with nets`, `Teaching in the temple`, `Playing with other kids`],
         correctAnswer: `Teaching in the temple`,
         bibleText: `Luke 2:46-47`
     },
@@ -49,8 +49,8 @@ export const QUESTIONS = [
     },
     {   // Question 9
         question: `At the moment Jesus died on the cross, which of the following things did NOT happen?`,
-        answers: [ `There was an earthquake`, `Jesus came back to life`, `The dead came to life`, `The veil of the temple was torn`],
-        correctAnswer: `Jesus came back to life`,
+        answers: [ `Earthquake`, `Jesus came to life`, `Dead came to life`, `Temple veil was torn`],
+        correctAnswer: `Jesus came to life`,
         bibleText: `Matthew 27:51-53`
     },
     {   // Question 10
