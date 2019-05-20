@@ -69,6 +69,14 @@ main > * {
         1px 1px 0 #000;
 }
 
+/* Remove default appearance for button and radio button elements */
+input[type=radio],
+button {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
 /* All button elements */
 button {
     background-color: #6B4870;
@@ -132,14 +140,6 @@ button:hover {
 #questionAnswerSet > input[type="radio"]:checked + .answerLabel {
     font-size: larger;
     text-shadow: 5px 5px 10px #112116;
-}
-
-/* Remove default appearance for button elements */
-input[type=radio],
-button {
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
 }
 
 #result {
