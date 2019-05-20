@@ -141,12 +141,7 @@ button {
 }
 
 input[type=radio] {
-    position: absolute !important;
-    clip: rect(0, 0, 0, 0);
-    height: 1px;
-    width: 1px;
-    border: 0;
-    overflow: hidden;
+    display: none;
 }
 
 #result {
