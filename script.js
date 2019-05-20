@@ -7,7 +7,7 @@ let currentQuesNum = 0;
 let score = 0;
 
 // Simple utility to control whether console log will display
-const LOG_ON = false;
+const LOG_ON = true;
 const logToggle = msg => {
     if( LOG_ON ) {
         console.log(msg);
@@ -42,7 +42,7 @@ function renderQuizHome() {
 // Generate the HTML for a single answer
 function generateAnswerElement(answer, index) {
     return `<input type="radio" tabindex="-1" name="answers" id="answer${index}" value="${answer}">
-            <label class="answerLabel" tabindex="0" onclick="submit()" role="button" for="answer${index}">${answer}</label>`;
+            <label class="js-answer answerLabel" tabindex="0" role="button" aria-pressed="false" for="answer${index}">${answer}</label>`;
 }
   
 // Generate the HTML string for all answers
@@ -63,7 +63,7 @@ function renderQuestion() {
         `<fieldset id="questionAnswerSet">
             <legend>${currentQuestion.question}</legend>
             ${generateAnswerString(currentQuestion.answers)}
-            <button type="submit" id="js-submitAnswer">And God said...</button>
+            <button type="submit" role="button" id="js-submitAnswer">And God said...</button>
         </fieldset>`;
 
     // Remove current info section
@@ -101,7 +101,7 @@ function generateQuestionResultString( isCorrect ) {
                 </p>`}
                 <p>You can read this story in ${QUESTIONS[currentQuesNum].bibleText}.</p>
             </div>
-            <button id="js-next">Continue your Quest</button>`;
+            <button id="js-next" >Continue your Quest</button>`;
 }
 
 // Update the DOM to display the result of answering a question
@@ -128,6 +128,38 @@ function determineQuestionResult() {
     renderQuestionResult(userIsCorrect);
 }
 
+// Handle Key commands for accessibility
+// Customization is necessary since radio button is not navigable.
+function handleQuestionSelect() {
+    $(document).keydown( event => {
+        const keycode = (event.key ? event.key : event.which);
+        const focusedLabel = $(".js-answer:focus");
+        const currentIndex = $(".js-answer").index(focusedLabel);
+        const prevInput = focusedLabel.prev("input[type='radio']");
+        if( prevInput.val() != null ) {
+            switch(keycode) {
+                case "Enter":
+                case " ":
+                    // Select the current answer
+                    prevInput.prop( "checked", true );
+                    break;
+                case "ArrowUp":
+                case "ArrowLeft":
+                    // Navigate to previous item
+                    $(".js-answer").eq((currentIndex-1)%4).focus();
+                    break;
+                case "ArrowDown":
+                case "ArrowRight":
+                    // Navigate to next item
+                    $(".js-answer").eq((currentIndex+1)%4).focus();
+                    break;
+                default:
+            }
+            
+        }
+    }); 
+}
+
 // Event handler for validating the Question form
 function handleValidateForm() {
     $("#js-questionForm").validate( {
@@ -150,10 +182,10 @@ function handleValidateForm() {
             else { // This is the default behavior
                 error.insertAfter( element );
             }
-        }
+        },
+        onclick: false
     });
 }       
-        
 
 // Generate the HTML for final quiz results
 function generateQuizResultString(isWinner) {
@@ -220,6 +252,7 @@ function handleQuiz() {
 
     renderQuizHome();
     handleStartButton();
+    handleQuestionSelect();
     handleValidateForm();
     handleNextButton();
     handleResetButton();
