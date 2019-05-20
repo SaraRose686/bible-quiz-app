@@ -10,6 +10,8 @@ body {
     background: url("images/aaron-burden-759770-unsplash.jpg") no-repeat center center fixed;
     background-size: cover;
     height: 100%;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
     overflow: hidden;
     color: #FFFACD;
     font-size: 18px;
