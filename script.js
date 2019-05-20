@@ -63,7 +63,7 @@ function renderQuestion() {
         `<fieldset id="questionAnswerSet">
             <legend>${currentQuestion.question}</legend>
             ${generateAnswerString(currentQuestion.answers)}
-            <button type="submit" role="button" id="js-submitAnswer">And God said...</button>
+            <button id="js-submitAnswer">And God said...</button>
         </fieldset>`;
 
     // Remove current info section
