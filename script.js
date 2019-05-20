@@ -41,7 +41,7 @@ function renderQuizHome() {
 
 // Generate the HTML for a single answer
 function generateAnswerElement(answer, index) {
-    return `<input type="radio" tabindex="-1" name="answers" id="answer${index}" value="${answer}" hidden>
+    return `<input type="radio" tabindex="-1" name="answers" id="answer${index}" value="${answer}">
             <label class="js-answer answerLabel" tabindex="0" role="button" aria-pressed="false" for="answer${index}">${answer}</label>`;
 }
   

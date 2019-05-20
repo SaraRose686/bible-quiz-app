@@ -140,10 +140,6 @@ button {
     appearance: none;
 }
 
-input[type=radio] {
-    display: none;
-}
-
 #result {
     padding: 10px;
     width: 80%;
