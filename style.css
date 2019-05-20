@@ -9,7 +9,7 @@ body {
     padding: 0;
     background: url("images/aaron-burden-759770-unsplash.jpg") no-repeat center center fixed;
     background-size: cover;
-    height: 100%;
+    height: 100vh;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     overflow: hidden;
