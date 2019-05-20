@@ -19,17 +19,17 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/additional-methods.min.js" defer></script>
         <script type="module" src="script.js"></script>
     </head>
-    <body>
-        <header>
-            <div class="progress" id="js-progressNum"></div>
+    <body role="application" aria-label="Bible Quiz App">
+        <header aria-label="Bible Quest Heading">
+            <h3 class="progress" id="js-progressNum" aria-label="Question Number"></h3>
             <h1>BIBLE QUEST</h1>
-            <div class="progress" id="js-progressScore"></div>
+            <h3 class="progress" id="js-progressScore" aria-label="Current Score"></h3>
         </header>
-        <main>
-            <section id="js-quizInfo"></section>
-            <form id="js-questionForm"></form>
+        <main aria-label="Bible Quest Main Content">
+            <section id="js-quizInfo" aria-label="Quiz Info and Result"></section>
+            <form id="js-questionForm" aria-label="Quiz Questions"></form>
         </main>
-        <footer>
+        <footer aria-label="Bible Quest Attribution">
 <!--        Embedded Attribution for background images -->
             <a href="https://unsplash.com/@aaronburden?utm_medium=referral&amp;utm_campaign=photographer-credit&amp;utm_content=creditBadge" 
                 class="picAttribution" target="_blank" rel="noopener noreferrer" 

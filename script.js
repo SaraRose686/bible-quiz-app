@@ -93,11 +93,11 @@ function clearProgress() {
 
 // Generate the HTML for result 
 function generateQuestionResultString( isCorrect ) {
-    return `<div id="result">
+    return `<div id="result" role="none">
                 <h2>${isCorrect ? "Hallelujah!" : "Looks like you need more studying!"}</h2>
                 ${isCorrect ? "" : 
                 `<p>The correct answer is: 
-                    <span id="answerText">${QUESTIONS[currentQuesNum].correctAnswer}.</span>
+                    <em id="answerText">${QUESTIONS[currentQuesNum].correctAnswer}.</em>
                 </p>`}
                 <p>You can read this story in ${QUESTIONS[currentQuesNum].bibleText}.</p>
             </div>
