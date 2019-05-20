@@ -77,6 +77,13 @@ button {
     appearance: none;
 }
 
+input[type=radio] {
+    border: none;
+    margin: 0;
+    padding: 0;
+    height: 0;
+}
+
 /* All button elements */
 button {
     background-color: #6B4870;
@@ -133,8 +140,8 @@ button:hover {
 #questionAnswerSet > input[type="radio"]:checked + .answerLabel {
     background-color: rgb(46, 89, 57);
     box-shadow: inset 5px 5px 5px 0px #112116;
-    border: 2px inset #112116;
-    
+    border: 2px inset #112116, 
+        1px solid #112116;
 }
 
 #questionAnswerSet > input[type="radio"]:checked + .answerLabel {
