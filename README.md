@@ -1,5 +1,5 @@
 
-# Bible Quiz Web App
+# Bible Quest Web App
 
 How well do you know the Bible? Start your quest for Bible knowledge with this quiz web app. 
 
