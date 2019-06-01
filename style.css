@@ -90,12 +90,6 @@ button {
     font-size: 20px;
 }
 
-button:hover,
-button:focus {
-    box-shadow: inset 5px 5px 5px 0px rgb(42, 29, 44);
-    border: 2px inset rgb(42, 29, 44);
-}
-
 #questionAnswerSet {
     display: flex;
     flex-direction: column;
@@ -117,10 +111,6 @@ button {
     -webkit-border-radius: 8px;
 }
 
-.answerLabel:hover,
-button:hover {
-    cursor: pointer;
-}
 
 #questionAnswerSet > legend {
     background-color: rgba(46, 89, 57, 0.9);
@@ -135,8 +125,6 @@ button:hover {
     background-color: rgba(34, 64, 44, 0.75);
 }
 
-.answerLabel:hover, 
-.answerLabel:focus,
 #questionAnswerSet > input[type="radio"]:checked + .answerLabel {
     background-color: rgb(46, 89, 57);
     box-shadow: inset 5px 5px 5px 0px #112116;
@@ -176,10 +164,33 @@ a:active {
     color: #FFFACD;
 }
 
+@media (hover:hover) {
+
+button:hover,
+button:focus {
+    box-shadow: inset 5px 5px 5px 0px rgb(42, 29, 44);
+    border: 2px inset rgb(42, 29, 44);
+}
+    
+.answerLabel:hover, 
+.answerLabel:focus {
+    background-color: rgb(46, 89, 57);
+    box-shadow: inset 5px 5px 5px 0px #112116;
+    border: 2px inset #112116, 
+        1px solid #112116;
+}
+
+.answerLabel:hover,
+button:hover {
+    cursor: pointer;
+}
+
 a:hover,
 a:focus {
     font-weight: bolder;
     font-size: larger;
+}
+
 }
 
 /* Styling for Short Viewport */
